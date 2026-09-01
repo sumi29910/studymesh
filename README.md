@@ -6,6 +6,16 @@ Built for the WebMCP Challenge (Devpost).
 
 **Stack**: Python (FastAPI) backend + plain HTML/CSS/JavaScript frontend. WebMCP tools are registered in the frontend JS (`document.modelContext` is a browser API — it has to run client-side), and every tool calls straight into the Python backend, same as the human UI.
 
+# Features
+
+- **Task board** — Kanban-style, drag-and-drop, editable by the student or the agent
+- **Alarms** — set a study reminder for a specific time; fires a browser notification, an in-app popup, and a beep, whether set by the student or the agent
+- **Flashcards** — flip-card review sets, generated per topic
+- **Quiz zone** — topic quizzes with real curated content for common syllabus topics (Physics, Chemistry, Biology, History, CS, Math), scored instantly, with wrong answers quietly logged as weak areas
+- **Focus timer** — Pomodoro-style sessions, startable by the student or the agent
+- **Progress dashboard** — live donut and bar charts (task status, completion by subject), streak, XP, badges
+- **Motivational quotes** — a short quote pops up after finishing a quiz, completing a focus session, or crossing a 2-hour daily study milestone
+
 ## Why this is a strong fit for WebMCP
 
 Most "AI study apps" are a chatbot bolted onto the side of a normal app — the agent talks, the human still does all the clicking. StudyMesh instead exposes its **real actions** — add a task, build a quiz, start a focus session, reschedule a week — as WebMCP tools on `document.modelContext`. The agent doesn't describe what to do; it does it, on the same board the student sees, by calling the same FastAPI endpoints the student's own clicks call. There's exactly one source of truth (the Python backend) and two actors who can change it.
